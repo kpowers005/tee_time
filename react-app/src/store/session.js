@@ -71,19 +71,18 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (firstName, lastName, profilePic, playLevel, email, password) => async (dispatch) => {
+  const profile = new FormData()
+  profile.append("first_name", firstName)
+  profile.append("last_name", lastName)
+  profile.append("play_level", playLevel)
+  profile.append("profile_pic", profilePic)
+  profile.append("email", email)
+  profile.append("password", password)
+  console.log(profile.get('profile_pic'))
+
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      first_name: firstName,
-      last_name: lastName,
-      play_level: playLevel,
-      profile_pic: profilePic,
-      email,
-      password,
-    }),
+    body: profile
   });
 
   if (response.ok) {

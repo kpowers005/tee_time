@@ -9,7 +9,7 @@ const SignUpForm = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [profilePic, setProfilePic] = useState('');
+  const [profilePic, setProfilePic] = useState(null);
   const [playLevel, setPlayLevel] = useState('Beginner');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -42,7 +42,7 @@ const SignUpForm = () => {
   };
 
   const updateProfilePic = (e) => {
-    setProfilePic(e.target.value);
+    setProfilePic(e.target.files[0]);
   };
 
   const updateRepeatPassword = (e) => {
@@ -93,9 +93,9 @@ const SignUpForm = () => {
           type='select'
           name='playerLevel'
         >
-          <option onChange={setPlayLevel} value='Beginner'>Beginner</option>
-          <option onChange={setPlayLevel} value='Intermediate'>Intermediate</option>
-          <option onChange={setPlayLevel} value='Advanced'>Advanced</option>
+          <option onChange={e => setPlayLevel(e.target.value)} value='Beginner'>Beginner</option>
+          <option onChange={e => setPlayLevel(e.target.value)} value='Intermediate'>Intermediate</option>
+          <option onChange={e => setPlayLevel(e.target.value)} value='Advanced'>Advanced</option>
         </select>
       </div>
       <div>
