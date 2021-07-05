@@ -8,6 +8,7 @@ import Splash from './components/Splash/';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { getLocation } from './store/places';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +19,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
+    dispatch(getLocation())
   }, [dispatch]);
 
   if (!loaded) {
