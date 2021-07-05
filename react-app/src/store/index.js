@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import placesReducer from './places';
+import searchReducer from './search';
 import session from './session'
 
 const rootReducer = combineReducers({
   session,
   places : placesReducer,
+  search : searchReducer
 });
 
 
