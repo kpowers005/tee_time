@@ -1,5 +1,6 @@
 const GET_PLACES = 'places/GET_PLACES';
 const PHOTOS = 'places/PHOTOS';
+const DETAILS = 'places/DETAILS';
 
 
 const places = locations => ({
@@ -10,6 +11,11 @@ const places = locations => ({
 const picturePerfect = photo => ({
   type: PHOTOS,
   photo
+});
+
+const placeDetails = details => ({
+  type: DETAILS,
+  details
 });
 
 
@@ -39,14 +45,30 @@ export const getPhoto = (photoref) => async dispatch => {
 };
 
 
+export const getPlaceDetails = (courseId) => async dispatch => {
+  const res = await fetch(`/api/places/details/${courseId}`)
+  console.log(res)
+
+  if(res.ok){
+
+    const details = await res.json()
+    dispatch(placeDetails(details))
+  }
+};
+
+
 
 export default function placesReducer(state = {}, action) {
+  const newState = { ...state }
   switch (action.type) {
     case GET_PLACES:
-      {
       const { places } = action.locations
-      return { 'locations': places.results  }
-      }
+      const placesArray = places.results
+      return { ...newState, 'locations' : placesArray }
+    case DETAILS:
+      console.log(action.details)
+      const {place_details} = action.details
+      return  { ...newState, 'place_details' : place_details.result}
     case PHOTOS:
       return { ...action.photo }
     default:
