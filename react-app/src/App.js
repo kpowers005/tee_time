@@ -5,11 +5,12 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/index';
 import Splash from './components/Splash/';
+import CoursePage from './components/CoursePage/';
 import ResultsPage from './components/ResultsPage/';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
-import { getLocation } from './store/places';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,7 +21,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-    dispatch(getLocation())
+
   }, [dispatch]);
 
   if (!loaded) {
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path='/search_results/' exact={true}>
           <ResultsPage />
+        </Route>
+        <Route path='/course/:courseId/'  exact={true}>
+          <CoursePage />
         </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />

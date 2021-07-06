@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { doSearch } from "../../store/search";
+import { getLocation } from "../../store/places";
 import PlaceHolder from "./PlaceHolder";
 import './index.css';
+
 
 
 const Splash = () => {
@@ -13,6 +15,9 @@ const Splash = () => {
   const {locations} = useSelector(state => state.places)
 
   console.log(locations)
+  useEffect(() => {
+    dispatch(getLocation())
+  }, [dispatch])
 
   const handleSearch = () => {
     const split = query.split(' ');
@@ -29,7 +34,7 @@ const Splash = () => {
       </div>
       <div className='splashpage__grid'>
         {locations?.map(place => {
-          return <PlaceHolder key={place.place_id} place={place}/>
+          return <Link to={`/course/${place.place_id}`}><PlaceHolder key={place.place_id} place={place}/></Link>
         })}
       </div>
     </div>

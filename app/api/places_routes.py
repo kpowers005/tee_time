@@ -27,3 +27,10 @@ def get_photo(photoref):
 
   # print(response)
   return {}
+
+@places_routes.route('/details/<courseId>')
+def get_place_details(courseId):
+
+  response = urlopen(f'https://maps.googleapis.com/maps/api/place/details/json?place_id={courseId}&fields=address_component,adr_address,business_status,formatted_address,geometry,icon,name,photo,place_id,plus_code,type,url,utc_offset,vicinity&key={os.environ.get("REACT_APP_API_KEY")}')
+  data = loads(response.read().decode('utf-8'))
+  return {'place_details': data}
