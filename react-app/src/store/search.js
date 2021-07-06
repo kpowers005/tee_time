@@ -21,7 +21,7 @@ export const doSearch = (query) => async dispatch => {
 export default function searchReducer(state = {}, action) {
   switch (action.type) {
     case SEARCH:
-      return { ...action.search }
+      return { ...action.data }
     default:
       return state;
   }

@@ -18,7 +18,7 @@ const Splash = () => {
     const q = split.join('+');
 
     dispatch(doSearch(q))
-    history.push('/search_results')
+    history.push('/search_results/')
   }
 
   return (

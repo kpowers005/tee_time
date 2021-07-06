@@ -5,6 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/index';
 import Splash from './components/Splash/';
+import ResultsPage from './components/ResultsPage/';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/search_results/' exact={true}>
+          <ResultsPage />
         </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
