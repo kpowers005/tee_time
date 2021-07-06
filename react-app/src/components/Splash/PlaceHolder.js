@@ -7,12 +7,12 @@ const PlaceHolder = ({ place }) => {
   const photoref = place.photos[0].photo_reference;
   const photo = useSelector(state => state.places)
   console.log(place)
-  console.log(photo)
 
 
-  useEffect(() => {
-    dispatch(getPhoto(photoref))
-  });
+
+  // useEffect(() => {
+  //   dispatch(getPhoto(photoref))
+  // });
 
 
   return (

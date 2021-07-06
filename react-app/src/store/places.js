@@ -43,7 +43,10 @@ export const getPhoto = (photoref) => async dispatch => {
 export default function placesReducer(state = {}, action) {
   switch (action.type) {
     case GET_PLACES:
-      return { ...action.locations }
+      {
+      const { places } = action.locations
+      return { 'locations': places.results  }
+      }
     case PHOTOS:
       return { ...action.photo }
     default:

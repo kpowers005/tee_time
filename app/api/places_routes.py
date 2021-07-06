@@ -25,5 +25,5 @@ def get_photo(photoref):
 
   response = urlopen(f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference={photoref}&key={os.environ.get("REACT_APP_API_KEY")}')
 
-  print(response)
+  # print(response)
   return {}
