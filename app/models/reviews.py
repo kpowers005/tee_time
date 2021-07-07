@@ -18,5 +18,5 @@ class Review(db.Model):
       'review': self.review,
       'course_api': self.course_api,
       'rating': self.rating,
-      'user': self.user,
+      'userId': self.userId,
     }

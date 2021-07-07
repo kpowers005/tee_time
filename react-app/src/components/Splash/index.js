@@ -12,18 +12,20 @@ const Splash = () => {
   const dispatch = useDispatch();
   const history = useHistory()
   const [query, setQuery] = useState('');
-  const {locations} = useSelector(state => state.places)
+  const {locations, coordinates} = useSelector(state => state.places)
 
   console.log(locations)
   useEffect(() => {
-    dispatch(getLocation())
+    if (!coordinates) {
+      dispatch(getLocation())
+    }
   }, [dispatch])
 
   const handleSearch = () => {
     const split = query.split(' ');
     const q = split.join('+');
-
-    dispatch(doSearch(q))
+    const gq = 'golf+course+' + q
+    dispatch(doSearch(gq))
     history.push('/search_results/')
   }
 
@@ -34,7 +36,7 @@ const Splash = () => {
       </div>
       <div className='splashpage__grid'>
         {locations?.map(place => {
-          return <Link to={`/course/${place.place_id}`}><PlaceHolder key={place.place_id} place={place}/></Link>
+          return <PlaceHolder key={place.place_id} place={place}/>
         })}
       </div>
     </div>

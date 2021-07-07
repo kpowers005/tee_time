@@ -20,14 +20,6 @@ def get_location():
   return {'key': os.environ.get("REACT_APP_API_KEY")}
 
 
-@places_routes.route('/photo/<photoref>')
-def get_photo(photoref):
-
-  response = urlopen(f'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference={photoref}&key={os.environ.get("REACT_APP_API_KEY")}')
-
-  # print(response)
-  return {}
-
 @places_routes.route('/details/<courseId>')
 def get_place_details(courseId):
 
