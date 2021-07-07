@@ -14,7 +14,7 @@ const Splash = () => {
   const [query, setQuery] = useState('');
   const {locations, coordinates} = useSelector(state => state.places)
 
-  console.log(locations)
+
   useEffect(() => {
     if (!coordinates) {
       dispatch(getLocation())
@@ -24,8 +24,8 @@ const Splash = () => {
   const handleSearch = () => {
     const split = query.split(' ');
     const q = split.join('+');
-    const gq = 'golf+course+' + q
-    dispatch(doSearch(gq))
+
+    dispatch(doSearch(q))
     history.push('/search_results/')
   }
 

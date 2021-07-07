@@ -73,7 +73,7 @@ export const getPlaceDetails = (courseId) => async dispatch => {
 
 
 
-export default function placesReducer(state = {'key': ''}, action) {
+export default function placesReducer(state = {}, action) {
   const newState = { ...state }
   switch (action.type) {
     case GET_PLACES:
@@ -81,7 +81,6 @@ export default function placesReducer(state = {'key': ''}, action) {
       const placesArray = places.results
       return { ...newState, 'locations' : placesArray }
     case DETAILS:
-      console.log(action.details)
       const {place_details} = action.details
       return  { ...newState, 'place_details' : place_details.result}
     case PHOTOS:

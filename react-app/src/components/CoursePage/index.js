@@ -11,7 +11,7 @@ const CoursePage = () => {
   const { place_details } = useSelector(state => state.places)
   const dispatch = useDispatch();
   const { courseId } = useParams();
-  const id = place_details.place_id
+  // const id = place_details?.place_id
 
   useEffect(() => {
     dispatch(getPlaceDetails(courseId));
@@ -28,7 +28,7 @@ const CoursePage = () => {
           <h4>Official Website <a href={`${place_details?.url}`}>Click Here</a></h4>
         </div>
         <div className='coursepage__reservations'>
-          <ReviewHolder id={id}/>
+          {courseId && <ReviewHolder id={courseId}/>}
           <ReservationHolder />
         </div>
       </div>
