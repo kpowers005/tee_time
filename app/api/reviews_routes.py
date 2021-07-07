@@ -30,10 +30,10 @@ def review_handler(id=None):
 
 
 
-# @reviews_routes.route('/<id>')
-# def get_reviews(id):
-#   results = Review.query.filter(Review.course_api == id).all()
+@reviews_routes.route('/<id>', methods=["PUT"])
+def get_reviews(id):
+  result = Review.query.get(id)
 
-#   reviews = [result.to_dict() for result in results]
 
-#   return {'reviews':reviews}
+
+  return {'reviews':reviews}
