@@ -92,6 +92,7 @@ const SignUpForm = () => {
         <select
           type='select'
           name='playerLevel'
+          value={playLevel}
         >
           <option onChange={e => setPlayLevel(e.target.value)} value='Beginner'>Beginner</option>
           <option onChange={e => setPlayLevel(e.target.value)} value='Intermediate'>Intermediate</option>
