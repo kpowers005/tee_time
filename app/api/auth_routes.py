@@ -70,10 +70,10 @@ def sign_up():
             email=form.data['email'],
             password=form.data['password'],
             play_level=form.data['play_level'],
-            profile_pic=form.data['profile_pic'],
         )
 
-        if request.files['profile_pic'] != False:
+
+        if 'profile_pic' in request.files:
             image = request.files['profile_pic']
 
             if not allowed_files(image.filename):

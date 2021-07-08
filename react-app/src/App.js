@@ -38,20 +38,20 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/search_results/' exact={true}>
+        <Route path='/search_results/:query/' exact={true}>
           <ResultsPage />
         </Route>
         <Route path='/course/:courseId/'  exact={true}>
           <CoursePage />
         </Route>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId/' exact={true} >
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Splash />
         </Route>
         <Route path='' >
-          <div>You have encountered an error</div>
+          <h1>You have encountered an error</h1>
         </Route>
       </Switch>
     </BrowserRouter>
