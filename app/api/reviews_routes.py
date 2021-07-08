@@ -30,10 +30,21 @@ def review_handler(id=None):
 
 
 
-@reviews_routes.route('/<id>', methods=["PUT"])
-def get_reviews(id):
-  result = Review.query.get(id)
+@reviews_routes.route('delete/<id>/', methods=["DELETE"])
+@reviews_routes.route('edit/<id>/', methods=["PUT", "DELETE"])
+def edit_review(id):
+  review = Review.query.get(id)
+  if request.method == 'DELETE':
+    db.session.delete(review)
+    db.session.commit()
+    return { 'id': review.course_api }
 
+  review.to_dict()
+  newReview = request.get_json()
 
+  if (review.rating != newReview['rating']) or (review.review != newReview['review']):
+    review.rating = newReview['rating']
+    review.review = newReview['review']
+    db.session.commit()
 
-  return {'reviews':reviews}
+  return { 'id': review.course_api }

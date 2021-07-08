@@ -1,9 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import { setUser } from '../../store/session';
 import "./index.css"
 
 const NavBar = () => {
+  const {user} = useSelector(state => state.session);
+  const dispatch = useDispatch()
+  const demoLogin = async () => {
+    const res = await fetch('/api/auth/demo/')
+
+    if (res.ok) {
+      const demo = await res.json()
+     dispatch(setUser(demo))
+    }
+  };
+
+
   return (
     <nav className='navbar__holder'>
       <ul className='navbar__list'>
@@ -23,7 +37,10 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li className='navbar__links'>
-          <LogoutButton />
+          {user && <LogoutButton />}
+        </li>
+        <li className='navbar__links'>
+         {!user && <button onClick={demoLogin}>Demo</button>}
         </li>
       </ul>
     </nav>
