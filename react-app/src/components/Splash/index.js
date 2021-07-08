@@ -24,9 +24,8 @@ const Splash = () => {
   const handleSearch = () => {
     const split = query.split(' ');
     const q = split.join('+');
-
-    dispatch(doSearch(q))
-    history.push('/search_results/')
+    const gq = 'golf+' + q
+    history.push(`/search_results/${gq}/`)
   }
 
   return (

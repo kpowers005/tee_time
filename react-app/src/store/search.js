@@ -1,9 +1,10 @@
 const SEARCH = 'search/SEARCH';
 const SAVE_QUERY = 'search/SAVE_QUERY';
 
-const results = (data) => ({
+const results = (data, key) => ({
   type: SEARCH,
-  data
+  data,
+  key
 });
 
 const stashQuery = (query) => ({
@@ -16,9 +17,9 @@ export const doSearch = (query) => async dispatch => {
   const res = await fetch(`/api/search/${query}/`)
   dispatch(stashQuery(query))
   if(res.ok){
+    const {search, key} = await res.json()
 
-    const {search} = await res.json()
-    dispatch(results(search))
+    dispatch(results(search, key))
   }
 };
 
@@ -26,7 +27,7 @@ export const doSearch = (query) => async dispatch => {
 export default function searchReducer(state = {}, action) {
   switch (action.type) {
     case SEARCH:
-      const data = { ...action.data }
+      const data = { ...action.data, 'key': action.key }
       return { ...data }
     case SAVE_QUERY:
       return { ...state, 'query': action.query }
