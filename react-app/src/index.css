@@ -2,3 +2,8 @@
 * {
   margin: 0px;
 }
+
+button:hover
+{
+  cursor: pointer;
+}

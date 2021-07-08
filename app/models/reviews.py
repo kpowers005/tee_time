@@ -1,5 +1,5 @@
 from .db import db
-
+from .user import User
 
 class Review(db.Model):
   __tablename__ = 'reviews'
@@ -20,3 +20,7 @@ class Review(db.Model):
       'rating': self.rating,
       'userId': self.userId,
     }
+
+  def get_user(self):
+    find_user = User.query.get(self.userId)
+    return find_user

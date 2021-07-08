@@ -73,7 +73,7 @@ def sign_up():
             profile_pic=form.data['profile_pic'],
         )
 
-        if request.files['profile_pic'] is not None:
+        if request.files['profile_pic'] != False:
             image = request.files['profile_pic']
 
             if not allowed_files(image.filename):

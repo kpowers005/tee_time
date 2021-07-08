@@ -21,7 +21,6 @@ const ReviewHolder = ( {id} ) => {
 
 
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 

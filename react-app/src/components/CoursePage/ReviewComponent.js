@@ -12,6 +12,7 @@ const ReviewComponent = ({ review, session }) => {
   const [confirmDelete, setConfirmDelete] = useState(false);
 
 
+
   const handleDelete = () => {
     dispatch(deleteReview(review.id))
   };
@@ -28,7 +29,7 @@ const ReviewComponent = ({ review, session }) => {
   }
   return (
           <div>
-              {review.rating}{review.review}
+              {review.user?.first_name} {review.user?.last_name}{review.rating}{review.review}
               <button disabled={review.userId !== session.user?.id} onClick={() => setShowEdit(!showEdit)}>Edit</button>
               <button disabled={review.userId !== session.user?.id} onClick={() => setConfirmDelete(!confirmDelete)}>Delete</button>
               {confirmDelete && <div>Are you sure? <button onClick={handleDelete}>Yes</button><button onClick={() => setConfirmDelete(false)}>No</button></div>}

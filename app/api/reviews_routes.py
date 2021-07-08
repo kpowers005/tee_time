@@ -23,8 +23,12 @@ def review_handler(id=None):
       id = review.course_api
 
   results = Review.query.filter(Review.course_api == id).all()
+  reviews = []
 
-  reviews = [result.to_dict() for result in results]
+  for result in results:
+    newResult = result.to_dict()
+    newResult['user'] = result.get_user().to_dict()
+    reviews.append(newResult)
 
   return {'reviews':reviews}
 

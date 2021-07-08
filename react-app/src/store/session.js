@@ -79,7 +79,7 @@ export const signUp = (firstName, lastName, profilePic, playLevel, email, passwo
   profile.append("profile_pic", profilePic)
   profile.append("email", email)
   profile.append("password", password)
-  console.log(profile.get('profile_pic'))
+
 
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
