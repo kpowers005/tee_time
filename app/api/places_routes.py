@@ -11,6 +11,7 @@ def get_places(lat=None, lng=None):
 
   response = urlopen(f'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat},{lng}&radius=50000&keyword=golf+course&key={os.environ.get("REACT_APP_API_KEY")}')
   data = loads(response.read().decode('utf-8'))
+  # print(data['results'])
   return {'places': data}
 
 
