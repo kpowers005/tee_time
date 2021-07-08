@@ -50,6 +50,9 @@ function App() {
         <Route path='/' exact={true} >
           <Splash />
         </Route>
+        <Route path='' >
+          <div>You have encountered an error</div>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
