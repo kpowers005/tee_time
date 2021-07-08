@@ -1,4 +1,5 @@
 import React, { useEffect, useState }  from "react";
+import ReviewComponent from './ReviewComponent';
 import { useDispatch, useSelector } from "react-redux";
 import { submitReview, getReviews } from "../../store/reviews";
 
@@ -6,8 +7,10 @@ const ReviewHolder = ( {id} ) => {
   const dispatch = useDispatch();
   const { session, reviews } = useSelector(state => state)
   const [showReview, setShowReview] = useState(false)
+
   const [rating, setRating] = useState(0)
   const [review, setReview] = useState('')
+
   const allReviews = Object.values(reviews)
   useEffect(() => {
 
@@ -17,9 +20,7 @@ const ReviewHolder = ( {id} ) => {
 
 
 
-  const handleClick = () => {
-    setShowReview(!showReview)
-  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,11 +34,13 @@ const ReviewHolder = ( {id} ) => {
 
     dispatch(submitReview(newReview))
     setShowReview(false);
+    setRating(0);
+    setReview('');
   };
 
   return (
     <div>
-      <button onClick={handleClick}>Leave a Review</button>
+      <button onClick={() => setShowReview(!showReview)} disabled={session.user ? false : true}>Leave a Review</button>
       {showReview && <form onSubmit={handleSubmit}>
         <input onSubmit={handleSubmit} type='number' max='5' min='0' value={rating} onChange={e => setRating(e.target.value)}></input>
         <textarea required type='text' value={review} onChange={e => setReview(e.target.value)}></textarea>
@@ -45,7 +48,7 @@ const ReviewHolder = ( {id} ) => {
         </form>}
         <div>
           {id && allReviews.map(review => {
-            return <div key={review.id}>{review.rating}{review.review}</div>
+            return <ReviewComponent key={review.id} review={review} session={session}/>
           })}
         </div>
     </div>

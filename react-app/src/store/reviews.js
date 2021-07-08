@@ -11,8 +11,31 @@ export const getReviews = (id) => async dispatch => {
 
   if (res.ok){
     const {reviews} = await res.json()
-
     dispatch(reviewDispatch(reviews))
+  }
+};
+
+export const deleteReview = (id) => async dispatch => {
+  const res = await fetch(`/api/reviews/delete/${id}/`, {
+    method: 'DELETE'
+  });
+
+  if (res.ok){
+    const {id} = await res.json()
+    dispatch(getReviews(id))
+  }
+};
+
+export const submitEdit = (newReview) => async dispatch => {
+  const res = await fetch(`/api/reviews/edit/${newReview.id}/`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(newReview)
+  });
+
+  if (res.ok){
+    const {id} = await res.json()
+    dispatch(getReviews(id))
   }
 };
 
@@ -20,7 +43,6 @@ export const getReviews = (id) => async dispatch => {
 export const submitReview = (newReview) => async dispatch => {
   const { course_api, rating, review, userId } = newReview
 
-  console.log(course_api, 'APIIIIIII')
   const form = new FormData()
   form.append('course_api', `${course_api}`);
   form.append('rating', rating);
@@ -47,6 +69,6 @@ export default function reviewReducer(state = {}, action) {
     case GET_REVIEWS:
       return { ...action.reviews }
     default:
-      return state;
+      return newState;
   }
 }
