@@ -16,9 +16,13 @@ const SearchBar = () => {
 
   return (
   <div className='searchbar__holder'>
-    <input className='searchbar__input' type='text' onChange={e => setQuery(e.target.value)} value={query}></input>
-    <button onClick={handleSearch}>Search</button>
-    <span>Search Powered by Google</span>
+    <div>
+      <input className='searchbar__input' type='text' onChange={e => setQuery(e.target.value)} value={query}></input>
+    </div>
+    <div>
+      <button onClick={handleSearch}>Search</button>
+      <span style={{'marginLeft': '10px'}}>Search Powered by Google</span>
+    </div>
   </div>
   )
 };

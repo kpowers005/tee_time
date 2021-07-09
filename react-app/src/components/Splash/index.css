@@ -1,30 +1,48 @@
 .splashpage__grid
 {
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(5, 20%);
-  row-gap: 10px;
+  box-sizing: border-box;
+  row-gap: 80px;
   column-gap: 3px;
-  width: 100%;
-  margin: 8px;
-  padding: 5px;
+  width: 98%;
+  margin: 50px 5px;
 }
 
-
+.splashpage__main
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .placeholder__main
 {
   display: flex;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   word-wrap: break-word;
   word-break: normal;
   text-align: center;
+  border: black .5px solid;
+  margin: 5px;
 }
 
 
 .placeholder__photo
 {
-  width: 250px;
-  height: 150px;
-  border: black .5px solid;
+  width: 100%;
+  height: 180px;
+  box-sizing: border-box;
+  border-bottom: black .5px solid;
+}
+
+.placeholder__main:hover
+{
+  box-shadow: 0 0 10px black;
+  transition: ease-in-out .3s;
 }

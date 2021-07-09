@@ -7,7 +7,6 @@ const SearchHolder = ({ place, api }) => {
 
 
 
-
   return api && (
     <div className='searchholder__main'>
       <Link to={`/course/${place.place_id}`}>
@@ -18,8 +17,7 @@ const SearchHolder = ({ place, api }) => {
         </div>
         <div className='searchholder__details'>
           <h3>{place.name}</h3>
-          <h3>{place.vicinity}</h3>
-
+          <h3>{place.formatted_address}</h3>
         </div>
       </Link>
     </div>
