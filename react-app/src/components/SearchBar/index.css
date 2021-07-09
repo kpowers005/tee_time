@@ -1,0 +1,13 @@
+.searchbar__holder
+{
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar__input
+{
+  height: 60px;
+  width: 60%;
+  border-radius: 5px;
+  font-size: 28px;
+}

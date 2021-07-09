@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { doSearch } from "../../store/search";
 import { getLocation } from "../../store/places";
 import PlaceHolder from "./PlaceHolder";
+import SearchBar from '../SearchBar';
 import './index.css';
 
 
@@ -11,7 +12,6 @@ import './index.css';
 const Splash = () => {
   const dispatch = useDispatch();
   const history = useHistory()
-  const [query, setQuery] = useState('');
   const {locations, coordinates} = useSelector(state => state.places)
 
 
@@ -21,20 +21,11 @@ const Splash = () => {
     }
   }, [dispatch])
 
-  const handleSearch = () => {
-    const split = query.split(' ');
-    const q = split.join('+');
-    const gq = 'golf+' + q
-    history.push(`/search_results/${gq}/`)
-  }
+
 
   return (
     <div>
-      <div className='splashpage__searchbar--holder'>
-        <input className='splashpage__searchbar' type='text' onChange={e => setQuery(e.target.value)} value={query}></input>
-        <button onClick={handleSearch}>Search</button>
-        <span>Search Powered by Google</span>
-      </div>
+      <SearchBar />
       <h1>Welcome to TeeTime!</h1>
       <h3>Take a look at all the golf courses in your area</h3>
       <div className='splashpage__grid'>
