@@ -41,7 +41,7 @@ const ReviewHolder = ( {id} ) => {
     <div>
       <button onClick={() => setShowReview(!showReview)} disabled={session.user ? false : true}>Leave a Review</button>
       {showReview && <form onSubmit={handleSubmit}>
-        <input onSubmit={handleSubmit} type='number' max='5' min='0' value={rating} onChange={e => setRating(e.target.value)}></input>
+        <input type='number' max='5' min='0' value={rating} onChange={e => setRating(e.target.value)}></input>
         <textarea required type='text' value={review} onChange={e => setReview(e.target.value)}></textarea>
         <button type='submit'>Submit</button>
         </form>}

@@ -5,7 +5,8 @@ class TeeTime(db.Model):
   __tablename__ = 'tee_times'
 
   id = db.Column(db.Integer, primary_key=True)
-  date = db.Column(db.DateTime)
+  date = db.Column(db.Date)
+  time = db.Column(db.Time)
   userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
   course_api = db.Column(db.String(1000), nullable=False)
 
@@ -17,6 +18,7 @@ class TeeTime(db.Model):
     return {
       'id': self.id,
       'date': self.date,
+      'time': self.time,
       'other_players': self.other_players,
       'user': self.user,
       'course_api': self.course_api,

@@ -11,7 +11,7 @@ const CoursePage = () => {
   const { place_details } = useSelector(state => state.places)
   const dispatch = useDispatch();
   const { courseId } = useParams();
-  // const id = place_details?.place_id
+
 
   useEffect(() => {
     dispatch(getPlaceDetails(courseId));
@@ -29,7 +29,7 @@ const CoursePage = () => {
         </div>
         <div className='coursepage__reservations'>
           {courseId && <ReviewHolder id={courseId}/>}
-          <ReservationHolder />
+          {courseId && <ReservationHolder id={courseId}/>}
         </div>
       </div>
     </div>
