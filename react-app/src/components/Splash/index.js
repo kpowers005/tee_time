@@ -31,8 +31,12 @@ const Splash = () => {
   return (
     <div>
       <div className='splashpage__searchbar--holder'>
-        <input className='splashpage__searchbar' type='text' onChange={e => setQuery(e.target.value)} value={query}></input><button onClick={handleSearch}>Search</button>
+        <input className='splashpage__searchbar' type='text' onChange={e => setQuery(e.target.value)} value={query}></input>
+        <button onClick={handleSearch}>Search</button>
+        <span>Search Powered by Google</span>
       </div>
+      <h1>Welcome to TeeTime!</h1>
+      <h3>Take a look at all the golf courses in your area</h3>
       <div className='splashpage__grid'>
         {locations?.map(place => {
           return <PlaceHolder key={place.place_id} place={place}/>
