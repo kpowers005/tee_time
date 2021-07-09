@@ -12,9 +12,9 @@ const SearchHolder = ({ place, api }) => {
     <div className='searchholder__main'>
       <Link to={`/course/${place.place_id}`}>
         <div >
-          {photoref && <img className='searchholder__photo' src={photoref ?
+          <img className='searchholder__photo' src={photoref ?
           `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference=${photoref}&key=${api}`
-          : 'https://teetimesbucket.s3.us-east-2.amazonaws.com/download.jpg'}/>}
+          : 'https://teetimesbucket.s3.us-east-2.amazonaws.com/download.jpg'}/>
         </div>
         <div className='searchholder__details'>
           <h3>{place.name}</h3>
