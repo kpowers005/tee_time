@@ -6,7 +6,6 @@ import { doSearch } from "../../store/search";
 
 const ResultsPage = () => {
   const search  = useSelector(state => state.search);
-  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   const { query } = useParams();
 
@@ -14,15 +13,13 @@ const ResultsPage = () => {
 
   useEffect(() => {
     dispatch(doSearch(query))
-    setLoading(false)
   },[dispatch, query])
 
   return (
     <div className='splashpage__grid'>
-      {loading && <div>Loading</div>}
-      {search.results && search?.results.map(place => {
+      {search.results ? search?.results.map(place => {
         return <SearchHolder key={place.place_id} place={place} api={search.key}/>
-      })}
+      }) : <div>Loading</div>}
     </div>
   )
 }
