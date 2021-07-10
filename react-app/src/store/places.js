@@ -47,7 +47,6 @@ export const getLocation = () => async dispatch => {
 
 export const getPlaceDetails = (courseId) => async dispatch => {
   const res = await fetch(`/api/places/details/${courseId}`)
-  console.log(res)
 
   if(res.ok){
 
