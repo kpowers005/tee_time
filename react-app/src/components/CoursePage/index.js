@@ -17,7 +17,7 @@ const CoursePage = () => {
     dispatch(getPlaceDetails(courseId));
   }, [dispatch, courseId])
 
-
+  console.log(place_details)
   return (
     <div>
       <CoursePhotos />
