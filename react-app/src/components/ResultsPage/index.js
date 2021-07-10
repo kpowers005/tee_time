@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import SearchHolder from './SearchHolder';
 import { doSearch } from "../../store/search";
+import SearchBar from "../SearchBar";
 import './index.css';
 
 const ResultsPage = () => {
@@ -17,11 +18,14 @@ const ResultsPage = () => {
   },[dispatch, query])
 
   return (
-    <div className='resultspage__grid'>
-      {search.results ? search?.results.map(place => {
-        return <SearchHolder key={place.place_id} place={place} api={search.key}/>
-      }) : <div>Loading</div>}
-    </div>
+    <>
+      <SearchBar />
+      <div className='resultspage__grid'>
+        {search.results ? search?.results.map(place => {
+          return <SearchHolder key={place.place_id} place={place} api={search.key}/>
+        }) : <div>Loading</div>}
+      </div>
+    </>
   )
 }
 

@@ -8,6 +8,7 @@ const PlaceHolder = ({ place }) => {
   const photoref = place.photos[0].photo_reference;
   const {key} = useSelector(state => state.places)
 
+  console.log(place)
 
 
   return key && (
@@ -20,7 +21,6 @@ const PlaceHolder = ({ place }) => {
         <div className='placeholder__details'>
           <h4>{place.name}</h4>
           <h4>{place.vicinity}</h4>
-
         </div>
       </Link>
     </div>

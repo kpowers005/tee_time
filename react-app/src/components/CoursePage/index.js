@@ -17,14 +17,16 @@ const CoursePage = () => {
     dispatch(getPlaceDetails(courseId));
   }, [dispatch, courseId])
 
+
   console.log(place_details)
+
   return (
     <div>
       <CoursePhotos />
       <div>
         <div className='coursepage__generalinfo'>
           <h1>{place_details?.name}</h1>
-          <h3>{place_details?.formatted_address}</h3>
+          <h3>{place_details?.vicinity}</h3>
           <h4>Official Website <a href={`${place_details?.url}`}>Click Here</a></h4>
         </div>
         <div className='coursepage__reservations'>
