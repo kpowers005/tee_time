@@ -17,7 +17,8 @@ const CoursePage = () => {
     dispatch(getPlaceDetails(courseId));
   }, [dispatch, courseId])
 
-  console.group(place_details)
+
+  console.log(place_details)
 
   return (
     <div>
