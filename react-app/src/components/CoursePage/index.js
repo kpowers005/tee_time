@@ -17,12 +17,11 @@ const CoursePage = () => {
     dispatch(getPlaceDetails(courseId));
   }, [dispatch, courseId])
 
-
-  console.log(place_details)
+console.log(place_details)
 
   return (
     <div>
-      <CoursePhotos />
+      <CoursePhotos photos={place_details?.photos}/>
       <div>
         <div className='coursepage__generalinfo'>
           <h1>{place_details?.name}</h1>
