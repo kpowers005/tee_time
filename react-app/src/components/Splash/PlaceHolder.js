@@ -8,7 +8,6 @@ const PlaceHolder = ({ place }) => {
   const photoref = place.photos[0].photo_reference;
   const {key} = useSelector(state => state.places)
 
-  console.log(place)
 
 
   return key && (
