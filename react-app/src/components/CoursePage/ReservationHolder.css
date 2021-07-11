@@ -7,8 +7,9 @@
   border: black 1px solid;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  right: 10px;
+  position: absolute;
+  right: 100px;
+  top: 100px;
 }
 
 

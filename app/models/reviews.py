@@ -10,6 +10,7 @@ class Review(db.Model):
   course_api = db.Column(db.String(1000), nullable=False)
   rating = db.Column(db.Integer)
 
+
   user = db.relationship('User', back_populates='reviews')
 
   def to_dict(self):

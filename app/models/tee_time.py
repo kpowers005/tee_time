@@ -1,12 +1,14 @@
+from flask_wtf.recaptcha import validators
 from sqlalchemy.orm import backref
 from .db import db
+from .user import User
 
 class TeeTime(db.Model):
   __tablename__ = 'tee_times'
 
   id = db.Column(db.Integer, primary_key=True)
-  date = db.Column(db.Date)
-  time = db.Column(db.Time)
+  date = db.Column(db.String(40), nullable=False)
+  time = db.Column(db.String(40))
   userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
   course_api = db.Column(db.String(1000), nullable=False)
 
@@ -20,10 +22,14 @@ class TeeTime(db.Model):
       'date': self.date,
       'time': self.time,
       'other_players': self.other_players,
-      'user': self.user,
+      'userId': self.userId,
       'course_api': self.course_api,
     }
 
+
+  def get_user(self):
+    find_user = User.query.get(self.userId)
+    return find_user
 
 booked_users = db.Table('booked_users',
   db.Column('playerId', db.Integer, db.ForeignKey('users.id')),

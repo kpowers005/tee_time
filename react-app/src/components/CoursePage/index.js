@@ -31,8 +31,8 @@ const CoursePage = () => {
         </div>
         <div className='coursepage__reservations'>
           {courseId && <ReviewHolder id={courseId}/>}
-          {courseId && <ReservationHolder id={courseId}/>}
         </div>
+        {courseId && <ReservationHolder id={courseId}/>}
       </div>
     </div>
   )
