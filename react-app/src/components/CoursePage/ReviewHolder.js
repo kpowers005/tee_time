@@ -7,7 +7,6 @@ const ReviewHolder = ( {id} ) => {
   const dispatch = useDispatch();
   const { session, reviews } = useSelector(state => state)
   const [showReview, setShowReview] = useState(false)
-
   const [rating, setRating] = useState(0)
   const [review, setReview] = useState('')
 
@@ -17,6 +16,7 @@ const ReviewHolder = ( {id} ) => {
     dispatch(getReviews(id))
 
   }, [dispatch, id]);
+
 
 
 
@@ -38,12 +38,13 @@ const ReviewHolder = ( {id} ) => {
   };
 
   return (
-    <div>
-      <button onClick={() => setShowReview(!showReview)} disabled={session.user ? false : true}>Leave a Review</button>
-      {showReview && <form onSubmit={handleSubmit}>
+    <div >
+      <button style={{'marginLeft': '8px'}}onClick={() => setShowReview(!showReview)} disabled={session.user ? false : true}>Leave a Review</button>
+      {showReview && <form className='editForm' onSubmit={handleSubmit}>
         <input type='number' max='5' min='0' value={rating} onChange={e => setRating(e.target.value)}></input>
         <textarea required type='text' value={review} onChange={e => setReview(e.target.value)}></textarea>
         <button type='submit'>Submit</button>
+        <button onClick={() => setShowReview(false)}>Cancel</button>
         </form>}
         <div>
           {id && allReviews.map(review => {

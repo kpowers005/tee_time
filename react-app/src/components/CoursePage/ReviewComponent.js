@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { submitEdit, deleteReview } from "../../store/reviews";
-
+import './ReviewComponent.css';
 
 
 const ReviewComponent = ({ review, session }) => {
@@ -17,6 +17,16 @@ const ReviewComponent = ({ review, session }) => {
     dispatch(deleteReview(review.id))
   };
 
+  const editButton = () => {
+    setShowEdit(!showEdit)
+    setConfirmDelete(false)
+  };
+
+  const deleteButton = () => {
+    setShowEdit(false)
+    setConfirmDelete(!confirmDelete)
+  }
+
   const sendEdit = (e) => {
     e.preventDefault();
     const newReview = {
@@ -28,15 +38,21 @@ const ReviewComponent = ({ review, session }) => {
     setShowEdit(false)
   }
   return (
-          <div>
-              {review.user?.first_name} {review.user?.last_name}{review.rating}{review.review}
-              <button disabled={review.userId !== session.user?.id} onClick={() => setShowEdit(!showEdit)}>Edit</button>
-              <button disabled={review.userId !== session.user?.id} onClick={() => setConfirmDelete(!confirmDelete)}>Delete</button>
+          <div className='reviewcomponent__details'>
+            <div className='userReview__personal'>
+              <div className='profilePic'>{review.user?.profile_pic ? <img alt='profile' className='profile__pic' src={review.user?.profile_pic}/> : review.user?.first_name[0] + review.user?.last_name[0]}</div><h2>{review.user?.first_name} {review.user?.last_name}</h2>
+            </div>
+            <div className='reviewcomponent__ratingreview'>
+              <div>Rating: {review.rating} star(s)</div>
+              <div>{review.review}</div>
+            </div>
+              <button disabled={review.userId !== session.user?.id} onClick={editButton}>Edit</button>
+              <button disabled={review.userId !== session.user?.id} onClick={deleteButton}>Delete</button>
               {confirmDelete && <div>Are you sure? <button onClick={handleDelete}>Yes</button><button onClick={() => setConfirmDelete(false)}>No</button></div>}
-              {showEdit && <form onSubmit={sendEdit}>
+              {showEdit && <form className='editForm' onSubmit={sendEdit}>
               <input type='number' min='0' max='5' value={editRating} onChange={e => setEditRating(e.target.value)}></input>
-              <textarea type='text'  value={editReview} onChange={e => setEditReview(e.target.value)}></textarea>
-              <button type='submit'>Submit</button>
+              <textarea resize='none' type='text'  value={editReview} onChange={e => setEditReview(e.target.value)}></textarea>
+              <button type='submit'>Submit</button><button onClick={() => setShowEdit(false)}>Cancel</button>
               </form>}
           </div>
   )

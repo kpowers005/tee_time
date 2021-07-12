@@ -51,6 +51,8 @@ export const getPlaceDetails = (courseId) => async dispatch => {
   if(res.ok){
 
     const details = await res.json()
+    console.log(details)
+    dispatch(storeKey(details.key))
     dispatch(placeDetails(details))
   }
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const SearchHolder = ({ place, api }) => {
@@ -11,7 +10,7 @@ const SearchHolder = ({ place, api }) => {
     <div className='searchholder__main'>
       <Link to={`/course/${place.place_id}`}>
         <div >
-          <img className='searchholder__photo' src={photoref ?
+          <img alt='golf course' className='searchholder__photo' src={photoref ?
           `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference=${photoref}&key=${api}`
           : 'https://teetimesbucket.s3.us-east-2.amazonaws.com/download.jpg'}/>
         </div>

@@ -1,0 +1,13 @@
+.coursepage__generalinfo
+{
+  border: red 2px transparent;
+  height: 300px;
+  padding-left: 8px;
+  padding-top: 10px;
+}
+
+
+.coursepage__generalinfo > h1, h3, h4
+{
+  padding: 10px 0;
+}
