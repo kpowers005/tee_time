@@ -1,0 +1,12 @@
+.coursephotos__main
+{
+  height: 302px;
+  border-bottom: black 2px solid;
+  box-sizing: border-box;
+}
+
+.coursephotos__photo
+{
+  height: 300px;
+  width: 25%;
+}

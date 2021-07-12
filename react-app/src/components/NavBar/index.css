@@ -1,7 +1,7 @@
 .navbar__holder
 {
   height: 60px;
-  background-color: aquamarine;
+  background-color:white;
 }
 
 .navbar__list
@@ -9,10 +9,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  list-style-type: none;
 }
 
 .navbar__links
 {
-  display: inline-block;
   font-size: 24px;
+}
+
+.demo
+{
+  border: none;
+  background-color: lightgreen;
+  margin: 5px 5px 0 0;
+  border-radius: 5px;
 }

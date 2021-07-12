@@ -1,0 +1,19 @@
+.signin__form
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 235, 205, 0.5);
+  height: 200px;
+}
+
+.form__formholders
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://teetimesbucket.s3.us-east-2.amazonaws.com/f256fa53f4a71faeafdc7d83ece05548.jpg');
+  height: 100vh;
+}

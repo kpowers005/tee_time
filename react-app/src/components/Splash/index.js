@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { doSearch } from "../../store/search";
 import { getLocation } from "../../store/places";
 import PlaceHolder from "./PlaceHolder";
 import SearchBar from '../SearchBar';
@@ -11,7 +9,6 @@ import './index.css';
 
 const Splash = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
   const {locations, coordinates} = useSelector(state => state.places)
 
 
@@ -37,5 +34,4 @@ const Splash = () => {
   )
 }
 
-// https://maps.googleapis.com/maps/api/place/textsearch/json?query={string for search}&key={apiKey}&location={latitude,longitude}&radius=50000
 export default Splash;

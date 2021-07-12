@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
@@ -14,7 +14,7 @@ const PlaceHolder = ({ place }) => {
     <div className='placeholder__main'>
       <Link to={`/course/${place.place_id}`}>
         <div>
-          <img className='placeholder__photo' src={photoref ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference=${photoref}&key=${key}`
+          <img alt='golf course' className='placeholder__photo' src={photoref ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference=${photoref}&key=${key}`
                                                             : 'https://teetimesbucket.s3.us-east-2.amazonaws.com/download.jpg'}/>
         </div>
         <div className='placeholder__details'>

@@ -2,14 +2,16 @@
 {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border: black 1px solid;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  position: absolute;
-  right: 100px;
-  top: 100px;
+  position: fixed;
+  background-color: white;
+  right: 200px;
+  top: 320px;
+  border-radius: 5px;
 }
 
 
@@ -17,6 +19,24 @@
 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+
+.teetime__form > input, button
+{
+  height: 40px;
+}
+
+
+.teetime__form > input:hover
+{
+  cursor:text;
+}
+
+
+.teetime__form  select
+{
+  margin: 5px 0px;
+  height: 40px;
 }

@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 * {
   margin: 0px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
@@ -14,4 +15,9 @@ a
 {
   text-decoration: none;
   color: black;
+}
+
+body
+{
+  padding-bottom: 80px;
 }

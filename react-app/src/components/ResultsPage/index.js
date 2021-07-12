@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import SearchHolder from './SearchHolder';
@@ -11,7 +11,12 @@ const ResultsPage = () => {
   const dispatch = useDispatch();
   const { query } = useParams();
 
-
+  const q = () => {
+    let newQ = query.split('+');
+    newQ.shift();
+    let res = newQ.join(' ')
+    return res
+  }
 
   useEffect(() => {
     dispatch(doSearch(query))
@@ -20,10 +25,11 @@ const ResultsPage = () => {
   return (
     <>
       <SearchBar />
+      <h2 style={{'textAlign': 'center'}}>Showing search results for <span style={{'fontStyle': 'italic'}}>{q()}</span></h2>
       <div className='resultspage__grid'>
-        {search.results ? search?.results.map(place => {
+        {search?.results ? search?.results.map(place => {
           return <SearchHolder key={place.place_id} place={place} api={search.key}/>
-        }) : <div>Loading</div>}
+        }) : <div>Loading...</div>}
       </div>
     </>
   )

@@ -19,18 +19,19 @@ const ReservationHolder = ({ id }) => {
 
   }, [dispatch, id]);
 
-  let i = 6
-  while(i < 20) {
-    let h
-    if (i > 12){
-      h = i - 12;
-    }
-    ['00', '15', '30', '45'].forEach(min => {
+
+    let i = 6
+    while(i < 20) {
+      let h
+      if (i > 12) {
+        h = i - 12;
+      }
+      ['00', '15', '30', '45'].forEach(min => {
       const teetime = `${i < 13 ? i : h}:${min}`
       times.push(teetime);
-    });
+      });
       i++
-  }
+    }
 
 
 
