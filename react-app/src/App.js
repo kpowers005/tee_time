@@ -8,6 +8,7 @@ import Splash from './components/Splash/';
 import CoursePage from './components/CoursePage/';
 import ResultsPage from './components/ResultsPage/';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Footer from './components/Footer';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -54,6 +55,7 @@ function App() {
           <h1>You have encountered an error</h1>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
