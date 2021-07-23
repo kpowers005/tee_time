@@ -1,26 +1,76 @@
 .navbar__holder
 {
   height: 60px;
-  background-color:white;
+  background-image: url('https://teetimesbucket.s3.us-east-2.amazonaws.com/download-2.jpg');
+  background-size: 50%;
+}
+
+.navbar__links > a
+{
+  font-size: 20px;
+  color: black;
 }
 
 .navbar__list
 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
   list-style-type: none;
+  align-items: center;
+  padding-left: 0;
 }
 
-.navbar__links
+
+.demoOrNah
 {
-  font-size: 24px;
+  grid-column-start: 10;
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 5px 5px 0;
 }
 
 .demo
 {
   border: none;
-  background-color: lightgreen;
-  margin: 5px 5px 0 0;
   border-radius: 5px;
+  background-color: rgb(255, 255, 255, 0.4);
+}
+
+
+.teeTime__logo
+{
+  /* grid-column-start: 5; */
+  justify-self: center;
+  margin-left: 10px;
+}
+
+.signup__nav
+{
+  grid-column: 8/10;
+  justify-self: end;
+  align-self: flex-end;
+  padding-right: 10px 10px;
+  text-align: right;
+}
+
+.teeTime__logo > a
+{
+  font-size: 38px;
+  font-style: italic;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 30%;
+  box-sizing: border-box;
+  padding:2px;
+}
+
+.navbar__links.login__nav
+{
+  font-size: 14px;
+}
+
+
+.signup__nav > a:hover
+{
+  background-color: rgb(255, 255, 255, 0.4);
 }

@@ -6,7 +6,7 @@ import CoursePhotos from "./CoursePhotos";
 import ReviewHolder from "./ReviewHolder";
 import ReservationHolder from "./ReservationHolder";
 import ReservationDisplay from "./ReservationDisplay";
-import './index.css'
+import './index.css';
 
 
 const CoursePage = () => {
@@ -14,7 +14,7 @@ const CoursePage = () => {
   const dispatch = useDispatch();
   const { courseId } = useParams();
 
-console.log(place_details)
+
   useEffect(() => {
     dispatch(getPlaceDetails(courseId));
   }, [dispatch, courseId])

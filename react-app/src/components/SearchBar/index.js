@@ -17,7 +17,7 @@ const SearchBar = () => {
   return (
   <div className='searchbar__holder'>
     <div>
-      <input className='searchbar__input' type='text' onChange={e => setQuery(e.target.value)} value={query}></input>
+      <form onSubmit={handleSearch} ><input className='searchbar__input' type='text' onSubmit={handleSearch} onChange={e => setQuery(e.target.value)} value={query}></input></form>
     </div>
     <div>
       <button onClick={handleSearch}>Search</button>
