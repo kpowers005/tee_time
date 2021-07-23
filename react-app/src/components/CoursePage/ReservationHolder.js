@@ -69,6 +69,7 @@ const ReservationHolder = ({ id }) => {
           </select>
         </div>
         <button type='submit' disabled={session.user ? false : true}>Submit</button>
+        {!session.user && <span style={{'color': 'red', 'fontStyle' : 'italic', 'marginLeft' : '8px'}}>Please login to make a tee time</span>}
       </form>
     </div>
   )

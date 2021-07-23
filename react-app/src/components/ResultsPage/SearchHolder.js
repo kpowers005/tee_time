@@ -5,6 +5,13 @@ const SearchHolder = ({ place, api }) => {
   const photoref = (place.photos && place.photos[0].photo_reference);
 
 
+  const address = () => {
+    let newAddress = place.formatted_address.split(' ')
+    newAddress.pop()
+    newAddress.pop()
+    newAddress.pop()
+    return newAddress.join(' ')
+  }
 
   return api && (
     <div>
@@ -16,7 +23,7 @@ const SearchHolder = ({ place, api }) => {
         </div>
         <div className='searchholder__details'>
           <div>{place.name}</div>
-          <div>{place.formatted_address}</div>
+          <div>{address()}</div>
         </div>
       </Link>
     </div>

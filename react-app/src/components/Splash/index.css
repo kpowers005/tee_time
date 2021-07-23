@@ -31,7 +31,7 @@
   text-align: center;
   border: black .5px solid;
   margin: 5px;
-  height: 250px;
+  height: 300px;
 }
 
 
@@ -51,7 +51,7 @@
 
 .placeholder__details
 {
-  height: 25%;
+  height: 30%;
   box-sizing: border-box;
   padding: 5px;
   border: none;
@@ -62,5 +62,5 @@
 
 .placeholder__photoholder
 {
-  height: 75%;
+  height: 70%;
 }

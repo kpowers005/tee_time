@@ -39,6 +39,7 @@ const ReviewHolder = ( {id} ) => {
 
   return (
     <div >
+      {!session.user && <span style={{'color': 'red', 'fontStyle' : 'italic', 'marginLeft' : '8px'}}>Please login to leave review</span>}
       <button style={{'marginLeft': '8px'}}onClick={() => setShowReview(!showReview)} disabled={session.user ? false : true}>Leave a Review</button>
       {showReview && <form className='editForm' onSubmit={handleSubmit}>
         <input type='number' max='5' min='0' value={rating} onChange={e => setRating(e.target.value)}></input>
