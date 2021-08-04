@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { submitEdit, deleteReview } from "../../store/reviews";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-regular-svg-icons'
+import { faStar as solid} from '@fortawesome/free-solid-svg-icons'
 import './ReviewComponent.css';
 
 
@@ -40,10 +43,17 @@ const ReviewComponent = ({ review, session }) => {
   return (
           <div className='reviewcomponent__details'>
             <div className='userReview__personal'>
-              <div className='profilePic'>{review.user?.profile_pic ? <img alt='profile' className='profile__pic' src={review.user?.profile_pic}/> : review.user?.first_name[0] + review.user?.last_name[0]}</div><h2>{review.user?.first_name} {review.user?.last_name}</h2>
+              <div className='profilePic'>{review.user?.profile_pic ? <img alt='profile' className='profile__pic' src={review.user?.profile_pic}/> : review.user?.first_name[0] + review.user?.last_name[0]}</div>
+              <h2>{review.user?.first_name} {review.user?.last_name}</h2>
+              <div className='reviewcomponent__stars'>{['','','','',''].map((star, i) => {
+                if(i < review.rating) {
+                  return star = <FontAwesomeIcon style={{'color': 'red'}} icon={solid} size='1x'/>
+                } else {
+                  return star = <FontAwesomeIcon style={{'color': 'red'}} icon={faStar} size='1x'/>
+                }
+              })}</div>
             </div>
             <div className='reviewcomponent__ratingreview'>
-              <div>Rating: {review.rating} star(s)</div>
               <div>{review.review}</div>
             </div>
               <button disabled={review.userId !== session.user?.id} style={review.userId !== session.user?.id && {'display' : 'none'}} onClick={editButton}>Edit</button>

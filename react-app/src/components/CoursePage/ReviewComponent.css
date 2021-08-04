@@ -67,3 +67,10 @@
 {
   width: 100px;
 }
+
+.reviewcomponent__stars
+{
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}

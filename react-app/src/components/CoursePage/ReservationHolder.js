@@ -54,13 +54,13 @@ const ReservationHolder = ({ id }) => {
 
   return (
     <div className='teetime__formholder'>
-      <h3>Make a Tee Time!</h3>
+      <h2>Make a Tee Time</h2>
       <form className='teetime__form' onSubmit={handleSubmit}>
         <input required type='date' value={day} onChange={e => setDay(e.target.value)}></input>
         <div style={{'display': 'flex'}}>
           <select required type='text' value={time} onChange={e => setTime(e.target.value)}>
             {times.map((h, i) => {
-              return <option key={i} value={`${h}`}>{h}</option>
+              return <option key={i + 1} value={`${h}`}>{h}</option>
             })}
           </select>
           <select required value={dayAndNite} onChange={e => setDayAndNite(e.target.value)}>

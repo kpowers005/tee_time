@@ -15,10 +15,12 @@ const CoursePage = () => {
   const { courseId } = useParams();
 
 
+
   useEffect(() => {
     dispatch(getPlaceDetails(courseId));
   }, [dispatch, courseId])
 
+  console.log(place_details)
 
   return (
     <div>
@@ -29,13 +31,13 @@ const CoursePage = () => {
           <h3 style={{'fontStyle' : 'italic'}}>{place_details?.vicinity}</h3>
           <h4>Official Website <a style={{'color': 'blue'}} href={`${place_details?.url}`}>Click Here</a></h4>
         </div>
-        <div className='coursepage__reviews'>
-          <h1 style={{'paddingLeft': '8px'}}>Reviews</h1>
-          {courseId && <ReviewHolder id={courseId}/>}
-        </div>
         <div className='coursepage__reservations'>
-          <h1 style={{'paddingLeft': '8px'}}>Upcoming Tee Times at this course</h1>
+          <h1>Upcoming Tee Times at this course</h1>
           {courseId && <ReservationDisplay id={courseId}/>}
+        </div>
+        <div className='coursepage__reviews'>
+          <h1>Reviews</h1>
+          {courseId && <ReviewHolder id={courseId}/>}
         </div>
         {courseId && <ReservationHolder id={courseId}/>}
       </div>
