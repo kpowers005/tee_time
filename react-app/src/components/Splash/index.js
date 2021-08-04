@@ -23,8 +23,6 @@ const Splash = () => {
   return (
     <div className='splashpage__main'>
       <SearchBar />
-      <h1>Welcome to TeeTime!</h1>
-      <h3>Find golf courses in your area</h3>
       <div className='splashpage__grid'>
         {locations?.map(place => {
           return <PlaceHolder key={place.place_id} place={place}/>
