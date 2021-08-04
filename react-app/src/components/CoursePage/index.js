@@ -23,7 +23,7 @@ const CoursePage = () => {
   console.log(place_details)
 
   return (
-    <div>
+    <div >
       {place_details && <CoursePhotos photos={place_details?.photos}/>}
       <div>
         <div className='coursepage__generalinfo'>
@@ -32,7 +32,7 @@ const CoursePage = () => {
           <h4>Official Website <a style={{'color': 'blue'}} href={`${place_details?.url}`}>Click Here</a></h4>
         </div>
         <div className='coursepage__reservations'>
-          <h1>Upcoming Tee Times at this course</h1>
+          <h1>Upcoming Tee Times at this golf course</h1>
           {courseId && <ReservationDisplay id={courseId}/>}
         </div>
         <div className='coursepage__reviews'>

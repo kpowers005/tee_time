@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservations } from "../../store/reservations";
-
+import './ReservationDisplay.css'
 
 const ReservationDisplay = ({ id }) => {
   const reservations = useSelector(state => state.reservations);
@@ -15,12 +15,14 @@ const ReservationDisplay = ({ id }) => {
   return (
     <div>
       <table>
-        <tbody>
+        <thead>
           <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Player(s)</th>
+            <th scope='col'>Date</th>
+            <th scope='col'>Time</th>
+            <th scope='col'>Player(s)</th>
           </tr>
+        </thead>
+        <tbody>
           {teetimes?.map(tt => {
             return <tr>
               <td>

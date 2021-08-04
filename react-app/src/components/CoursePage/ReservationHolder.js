@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { submitReservation } from "../../store/reservations";
 import date from 'date-and-time';
@@ -13,11 +13,6 @@ const ReservationHolder = ({ id }) => {
   const [dayAndNite, setDayAndNite] = useState('AM')
   const times = [];
 
-  useEffect(() => {
-
-    // dispatch((id))
-
-  }, [dispatch, id]);
 
 
     let i = 6
