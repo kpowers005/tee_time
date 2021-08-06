@@ -31,7 +31,7 @@ class TeeTime(db.Model):
     find_user = User.query.get(self.userId)
     return find_user
 
-booked_users = db.Table('booked_users',
-  db.Column('playerId', db.Integer, db.ForeignKey('users.id')),
-  db.Column('teeTimeId', db.Integer, db.ForeignKey('tee_times.id')),
-  )
+  booked_users = db.Table('booked_users',
+    db.Column('playerId', db.Integer, db.ForeignKey('users.id')),
+    db.Column('teeTimeId', db.Integer, db.ForeignKey('tee_times.id')),
+    )

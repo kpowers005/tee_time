@@ -108,3 +108,11 @@ def demo():
 
     login_user(user)
     return user.to_dict()
+
+
+
+@auth_routes.route('/<id>/')
+def getUser(id):
+    user = User.query.get(id)
+
+    return user.to_dict()
