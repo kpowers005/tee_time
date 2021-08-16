@@ -23,7 +23,7 @@ const SearchHolder = ({ place, api }) => {
         </div>
         <div className='searchholder__details'>
           <div>{place.name}</div>
-          <div>{address()}</div>
+          <div style={{'fontStyle' : 'italic'}}>{address()}</div>
         </div>
       </Link>
     </div>

@@ -56,8 +56,8 @@ const ReviewComponent = ({ review, session }) => {
             <div className='reviewcomponent__ratingreview'>
               <div>{review.review}</div>
             </div>
-              <button disabled={review.userId !== session.user?.id} style={review.userId !== session.user?.id && {'display' : 'none'}} onClick={editButton}>Edit</button>
-              <button disabled={review.userId !== session.user?.id} style={review.userId !== session.user?.id && {'display' : 'none'}} onClick={deleteButton}>Delete</button>
+              {review.userId === session.user?.id && <button onClick={editButton}>Edit</button>}
+              {review.userId === session.user?.id && <button onClick={deleteButton}>Delete</button>}
               {confirmDelete && <div>Are you sure? <button onClick={handleDelete}>Yes</button><button onClick={() => setConfirmDelete(false)}>No</button></div>}
               {showEdit && <form className='editForm' onSubmit={sendEdit}>
               <input type='number' min='0' max='5' value={editRating} onChange={e => setEditRating(e.target.value)}></input>
