@@ -51,10 +51,14 @@
 
 .placeholder__details
 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   height: 30%;
   box-sizing: border-box;
   padding: 5px;
-  border: none;
+  border: transparent black 1px;
   font-size: 16px;
 }
 
@@ -63,4 +67,12 @@
 .placeholder__photoholder
 {
   height: 70%;
+  width: 100%;
+}
+
+
+.place__location
+{
+  font-style: italic;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

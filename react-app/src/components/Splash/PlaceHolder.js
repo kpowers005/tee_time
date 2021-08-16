@@ -18,8 +18,8 @@ const PlaceHolder = ({ place }) => {
                                                             : 'https://teetimesbucket.s3.us-east-2.amazonaws.com/download.jpg'}/>
         </div>
         <div className='placeholder__details'>
-          <div>{place.name}</div>
-          <div style={{'fontStyle' : 'italic'}}>{place.vicinity}</div>
+          <h4>{place.name}</h4>
+          <div className='place__location'>{place.vicinity}</div>
         </div>
       </Link>
     </div>

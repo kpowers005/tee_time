@@ -23,7 +23,7 @@ const ResultsPage = () => {
   },[dispatch, query])
 
   return (
-    <>
+    <div className='resultspage__main'>
       <SearchBar />
       <h2 style={{'textAlign': 'center'}}>Showing search results for <span style={{'fontStyle': 'italic'}}>{q()}</span></h2>
       <div className='resultspage__grid'>
@@ -31,7 +31,7 @@ const ResultsPage = () => {
           return <SearchHolder key={place.place_id} place={place} api={search.key}/>
         }) : <div>Loading...</div>}
       </div>
-    </>
+    </div>
   )
 }
 

@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 500px;
   width: 100%;
   background-image: url('https://teetimesbucket.s3.us-east-2.amazonaws.com/f256fa53f4a71faeafdc7d83ece05548.jpg');
