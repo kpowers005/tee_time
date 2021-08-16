@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const USER_INFO = 'session/USER_INFO';
 
 export const setUser = (user) => ({
   type: SET_USER,
@@ -9,6 +10,12 @@ export const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
+});
+
+
+const userInfo = (uInfo) => ({
+  type: REMOVE_USER,
+  uInfo
 })
 
 const initialState = { user: null };
@@ -71,6 +78,17 @@ export const logout = () => async (dispatch) => {
 };
 
 
+export const getUser = (id) => async dispatch => {
+  const res = await fetch(`/api/auth/${id}`);
+
+  if (res.ok) {
+    const user = await res.json();
+    dispatch(userInfo(user));
+  }
+
+}
+
+
 export const signUp = (firstName, lastName, profilePic, playLevel, email, password) => async (dispatch) => {
   const profile = new FormData()
   profile.append("first_name", firstName)
@@ -104,6 +122,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
+    case USER_INFO:
+      return { uInfo: action.uInfo }
     case REMOVE_USER:
       return { user: null }
     default:
