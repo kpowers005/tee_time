@@ -24,16 +24,24 @@ const stashLocation = coordinates => ({
 });
 
 
-export const getLocation = () => async dispatch => {
+export const getLocation = (demo = false) => async dispatch => {
   const res = await fetch(`/api/places/get_location/`)
   const {key} = await res.json()
 
-  dispatch(storeKey(key))
-  const wya = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=${key}`, { method : 'POST'})
+  dispatch(storeKey(key));
+
+  let coordinates = {}
+  if (demo) {
+    coordinates.lat = 42.4651;
+    coordinates.lng = -71.010051;
+  } else {
+    coordinates = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=${key}`, { method : 'POST'});
+    const {location} = await coordinates.json()
+    coordinates = { ...location }
+  };
+
   if(res.ok){
 
-    const {location} = await wya.json()
-    const coordinates = { ...location }
 
     dispatch(stashLocation(coordinates))
     const data = await fetch(`/api/places/${coordinates.lat}/${coordinates.lng}`)
