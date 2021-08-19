@@ -5,18 +5,21 @@ import { faGolfBall } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { setUser } from '../../store/session';
+import { getLocation } from '../../store/places';
 import "./index.css"
 
 const NavBar = () => {
   const {user} = useSelector(state => state.session);
   const dispatch = useDispatch();
-  const listStyle = {'display' : 'flex', 'alignItems' : 'center'}
+  const listStyle = {'display' : 'flex', 'alignItems' : 'center'};
+
   const demoLogin = async () => {
     const res = await fetch('/api/auth/demo/')
 
     if (res.ok) {
-      const demo = await res.json()
-     dispatch(setUser(demo))
+      const demo = await res.json();
+      dispatch(getLocation(true))
+      dispatch(setUser(demo))
     }
   };
 

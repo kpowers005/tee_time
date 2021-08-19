@@ -16,7 +16,7 @@ const removeUser = () => ({
 const userInfo = (uInfo) => ({
   type: REMOVE_USER,
   uInfo
-})
+});
 
 const initialState = { user: null };
 
