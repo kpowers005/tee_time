@@ -1,12 +1,24 @@
+.signin__form--div
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(245, 229, 205);
+  height: 400px;
+  width: 28%;
+  box-sizing: border-box;
+}
+
 .signin__form
 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: rgb(255, 235, 205, 0.5);
-  height: 200px;
+  width: 50%;
 }
+
 
 .form__formholders
 {
@@ -15,5 +27,23 @@
   justify-content: center;
   align-items: center;
   background-image: url('https://teetimesbucket.s3.us-east-2.amazonaws.com/f256fa53f4a71faeafdc7d83ece05548.jpg');
-  height: 100vh;
+  background-position-y: 30%;
+  height: 90vh;
+  width: 100vw;
+}
+
+
+.signin__form div
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px;
+  width: 100%;
+}
+
+
+.signin__form input
+{
+  height: 20px;
 }
