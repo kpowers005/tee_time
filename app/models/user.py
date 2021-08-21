@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     other_players = db.relationship('TeeTime', secondary='booked_users', back_populates='other_players')
     reviews = db.relationship('Review', back_populates='user')
     tee_time = db.relationship('TeeTime', back_populates='user')
+    # friends = db.relationship()
 
     @property
     def password(self):

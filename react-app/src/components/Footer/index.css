@@ -3,7 +3,17 @@ footer
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 40px;
   background-color: white;
   border-top: thistle solid 0.5px;
+}
+
+footer a
+{
+  color: blue;
+}
+
+footer a:hover
+{
+  border-bottom: blue 1px solid;
 }
