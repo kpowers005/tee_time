@@ -47,3 +47,10 @@
 {
   height: 20px;
 }
+
+
+
+.signin__form label
+{
+  padding-right: 8px;
+}
