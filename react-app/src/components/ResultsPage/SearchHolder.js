@@ -22,8 +22,8 @@ const SearchHolder = ({ place, api }) => {
           : 'https://teetimesbucket.s3.us-east-2.amazonaws.com/download.jpg'}/>
         </div>
         <div className='searchholder__details'>
-          <div>{place.name}</div>
-          <div style={{'fontStyle' : 'italic'}}>{address()}</div>
+          <h4>{place.name}</h4>
+          <div className='place__location'>{address()}</div>
         </div>
       </Link>
     </div>

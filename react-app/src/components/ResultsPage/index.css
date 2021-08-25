@@ -48,7 +48,7 @@
   height: 30%;
   box-sizing: border-box;
   padding: 5px;
-  border: none;
+  border: transparent black 1px;
   font-size: 16px;
 }
 
