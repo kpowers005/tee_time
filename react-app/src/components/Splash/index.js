@@ -23,8 +23,9 @@ const Splash = () => {
   return (
     <div className='splashpage__main'>
       <SearchBar />
+      <h2 style={{'marginTop' : '5px'}}>Golf courses near you</h2>
       <div className='splashpage__grid'>
-        {locations?.map(place => {
+        {locations && locations.map(place => {
           return <PlaceHolder key={place.place_id} place={place}/>
         })}
       </div>
